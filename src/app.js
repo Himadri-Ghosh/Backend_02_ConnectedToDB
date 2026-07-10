@@ -43,10 +43,10 @@ app.patch('/notes/:id', async (req, res)=>{
   const id = req.params.id;
 
   if(req.body.description !== undefined){
-    await userModel.findOneAndUpdate({ _id:id }, { description: req.body.description });
+    await noteModel.findOneAndUpdate({ _id:id }, { description: req.body.description });
   }
   if(req.body.title !== undefined){
-    await userModel.findOneAndUpdate({ _id:id }, { title: req.body.title });
+    await noteModel.findOneAndUpdate({ _id:id }, { title: req.body.title });
   }
 
   res.status(201).json({
